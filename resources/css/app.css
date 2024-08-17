@@ -1,0 +1,298 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lemon&family=Quicksand:wght@300..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+    font-family: 'Funkymore';
+    font-style: normal;
+    font-weight: normal;
+    font-display: swap;
+    src: url(../fonts/Funkymore\ Regular.ttf) format('truetype');
+}
+
+@font-face {
+    font-family: 'Japanese 3017';
+    font-style: normal;
+    font-weight: normal;
+    font-display: swap;
+    src: url(../fonts/Japanese\ 3017.ttf) format('truetype');
+}
+
+@font-face {
+    font-family: 'Absolute Xero';
+    font-style: normal;
+    font-weight: normal;
+    font-display: swap;
+    src: url(../fonts/Absolute\ Xero.otf) format('opentype');
+}
+
+@font-face {
+    font-family: 'bigmacca';
+    font-style: normal;
+    font-weight: normal;
+    font-display: swap;
+    src: url(../fonts/bigmacca.ttf) format('truetype');
+}
+
+@layer component {
+    :root {
+        --svg-path-light: url('../../public/storage/img/curve-light.svg');
+        --svg-path-dark: url('../../public/storage/img/curve-dark.svg');
+    }
+
+    html {
+        scroll-behavior: smooth;
+    }
+
+    ::-webkit-scrollbar {
+        display: none;
+    }
+
+    .my-container {
+        @apply mx-auto max-w-[1536px];
+    }
+    
+
+    .logo {
+        border-bottom-right-radius: 20px;
+    }
+
+    .logo img,
+    .buttontoggle span,
+    .ulnav li {
+        animation: nav 1s cubic-bezier(0, 0, 0, 2) alternate;
+    }
+
+    @keyframes nav {
+        0% {
+            transform: translateY(-50px);
+        }
+
+        100% {
+            transform: translateY(0);
+        }
+    }
+    
+    .logo::before {
+        @apply absolute size-[2rem] left-0 top-[4rem];
+        content: var(--svg-path-light);
+    }
+
+    .logo::after {
+        @apply absolute size-[2rem] top-0 left-[4rem];
+        content: var(--svg-path-light);
+    }
+
+    .dark .logo::before {
+        @apply absolute size-[2rem] left-0 top-[4rem];
+        content: var(--svg-path-dark);
+    }
+
+    .dark .logo::after {
+        @apply absolute size-[2rem] top-0 left-[4rem];
+        content: var(--svg-path-dark);
+    }
+
+    .buttontoggle span.animate {
+        animation: spin 1.5s linear alternate;
+    }
+
+    @keyframes spin {
+        100% {
+            transform: rotate(360deg);
+        }
+    }
+
+    .hidden {
+        display: none;
+    }
+
+    .ulnav {
+        border-bottom-left-radius: 20px;
+    }
+
+    .ulnav::before {
+        @apply absolute size-[2rem] top-0 left-[-2rem];
+        content: var(--svg-path-light);
+        transform: rotateZ(90deg);
+    }
+
+    .ulnav::after {
+        @apply absolute size-[2rem] top-[4rem] right-0;
+        content: var(--svg-path-light);
+        transform: rotateZ(90deg);
+    }
+
+    .dark .ulnav::before {
+        @apply absolute size-[2rem] top-0 left-[-2rem];
+        content: var(--svg-path-dark);
+        transform: rotateZ(90deg);
+    }
+
+    .dark .ulnav::after {
+        @apply absolute size-[2rem] top-[4rem] right-0;
+        content: var(--svg-path-dark);
+        transform: rotateZ(90deg);
+    }
+    
+    .landingtitle h1 {
+        writing-mode: vertical-rl;
+        transform: rotateZ(180deg);
+    }
+
+    .heroimg {
+        transition: .5s all ease-in;
+        animation: appreal .5s linear;
+    }
+
+    @keyframes appreal {
+        0%{
+            transform: translateY(50px);
+            opacity: 0;
+        }
+
+        100% {
+            transform: translateY(0);
+            opacity: 1;
+        }
+    }
+
+    .year h1 {
+        font-family: 'Japanese 3017';
+    }
+
+    .smallimg {
+        border-top-left-radius: 20px;
+        backdrop-filter: blur(5px);
+    }
+
+    .smallimg::before {
+        @apply absolute size-[2rem] top-[-2rem] right-[0rem];
+        content: var(--svg-path-light);
+        transform: rotateZ(180deg);
+    }
+
+    .smallimg::after {
+        @apply absolute size-[2rem] bottom-0 left-[-2rem];
+        content: var(--svg-path-light);
+        transform: rotateZ(180deg);
+    }
+
+    .dark .smallimg::before {
+        @apply absolute size-[2rem] top-[-2rem] right-[0rem];
+        content: var(--svg-path-dark);
+        transform: rotateZ(180deg);
+    }
+
+    .dark .smallimg::after {
+        @apply absolute size-[2rem] bottom-0 left-[-2rem];
+        content: var(--svg-path-dark);
+        transform: rotateZ(180deg);
+    }
+
+    .smallimg .mySwiper .swiperslide .content img {
+        object-fit: cover;
+    }
+
+    .smallimg .mySwiper .swiperslide:nth-child(1) .content img {
+        object-position: 50% 0%;
+    }
+
+    .smallimg .mySwiper .swiperslide:nth-child(2) .content img {
+        object-position: 50% 70%;
+    }
+
+    .scrollbutton {
+        clip-path: polygon(20% 0%, 80% 0%, 100% 100%, 0% 100%);
+    }
+
+    .slider {
+        mask-image: linear-gradient(to right, transparent, black 10% 90%, transparent);
+    }
+
+    .slider .listinfinite {
+        min-width: calc(100px * 10);
+    }
+
+    .slider .listinfinite .iteminfinite {
+        @apply absolute left-[100%] w-[6rem] h-full;
+        animation: textrun 10s linear infinite;
+        animation-delay: calc((10s / 10) * (var(--position) - 1));
+    }
+
+    @keyframes textrun {
+        0%{
+            left: 100%;
+        }
+        
+        100% {
+            left: calc(6rem * -1);
+        }
+    }
+
+    .legendhero .content .card {
+        transform-style: preserve-3d;
+    }
+
+    .legendhero .content .card:hover {
+        opacity: .9;
+    }
+    
+    .legendhero .content .card .text span {
+        -webkit-text-stroke: 2px rgb(0, 0, 0);
+        color: transparent;
+    }
+
+    .dark .legendhero .content .card .text span {
+        -webkit-text-stroke: 2px rgb(255, 255, 255);
+    }
+
+    .legendhero .content .card:nth-child(2) .text span {
+        -webkit-text-stroke: 2px #fbe2c1;
+    }
+
+    .legendhero .content .card:hover .text {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+    
+    .legendhero .content .card .fullimage {
+        object-fit: cover;
+        mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.626), rgb(0, 0, 0), rgba(0, 0, 0, 0.626));
+    }
+
+    .dark .legendhero .content .card .fullimage {
+        mask-image: linear-gradient(to bottom, transparent, rgb(0, 0, 0), transparent);
+    }
+
+    .legendhero .content .card:hover .fullimage {
+        filter: blur(3px) grayscale(100%);
+        mask-image: none;
+    }
+
+    .legendhero .content .card .pngimage {
+        transition: .5s all linear;
+        opacity: 0;
+        transform: translateY(50px);
+        object-fit: cover;
+    }
+
+    .legendhero .content .card:hover .pngimage {
+        opacity: 1;
+        transform: translateY(0) translateZ(50px);
+    }
+
+    .quotesection {
+        mask-image: linear-gradient(to bottom, transparent, rgb(0, 0, 0) 20%, transparent);
+    }
+
+    .contactsection {
+        background: url('../../public/storage/img/blackpattern.png') no-repeat center;
+        background-size: cover;
+        background-position: 50% 50%;
+    }
+}
